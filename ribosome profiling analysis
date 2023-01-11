@@ -1,0 +1,27 @@
+#SAMPLE.fastq, as an example
+
+# Run fastqc quality control for all samples 
+module load fastqc/0.11.5
+fastqc #SAMPLE.fastq
+
+# Clip adapter and trim UMI (only for ribofootprint datasets)
+module load fastxtoolkit/0.0.14
+fastx_clipper -Q33 -a ATCGAGATCGGAAGAGCACACGTCTGAACTC -l 25 -c -n -v -i #SAMPLE.fastq -o #SAMPLE.clip.fastq
+fastx_trimmer -Q33 -t 5 -i #SAMPLE.clip.fastq -o #SAMPLE.trim.fastq
+
+# Filter out reads mapping to rRNA (only for ribofootprint datasets)
+module load bowtie/1.2.2 
+nohup bowtie -p 24 -l 23 --un #SAMPLE.trim.norrna.fastq /mnt/sequence/genomes/mouse/mm10-ribosomal #SAMPLE.trim.fastq
+
+# Align total reads (for RNA-seq datasets) or non-rRNA reads (for ribofootprint datasets) to the reference genome using STAR
+module load star/2.6.0c 
+
+# For RNA-seq datasets: 
+STAR --runMode alignReads --genomeDir /mnt/sequence/genomes/mouse/mm10/STAR_cdeluca --runThreadN 16 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate --outFileNamePrefix #SAMPLE_mm10_refSeq_rmsk --readFilesIn #SAMPLE.fastq
+
+# For ribofootprint dataset, I used a slightly more stringent condition for shorter reads (—outFilterMismatchNmax 4):
+STAR --runMode alignReads --genomeDir /mnt/sequence/genomes/mouse/mm10/STAR_cdeluca --runThreadN 16 --outFilterMismatchNmax 4 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate --outFileNamePrefix #SAMPLE_mm10_refSeq_rmsk --readFilesIn #SAMPLE.trim.norrna.fastq
+
+# (Optional) Index the .bam file to visualize the coverage in IGV
+module load samtools/1.6
+samtools index #SAMPLE_mm10_refSeq_rmskAligned.sortedByCoord.out.bam
