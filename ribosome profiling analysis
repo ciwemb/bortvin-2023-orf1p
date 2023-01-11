@@ -31,4 +31,4 @@ featureCounts -T 10 -t exon -g gene_id -s 2 -a /mnt/sequence/cdeluca/telescope/m
 # For Ribo-seq datasets (option -s 1, for forward stranded):
 featureCounts -T 10 -t CDS -g gene_id -s 1 -a /mnt/sequence/cdeluca/telescope/mm10_UCSC_refSeq_rmsk.gtf -o #SAMPLE_CDS.count.txt #SAMPLE_mm10_refSeq_rmskAligned.sortedByCoord.out.bam 
 
-# Merge counts in R and create the count matrix (see MergeCounts.R), then normalize counts using DESeq2 (DESeq2_deltaTE.R)
+# 5) Merge counts in R and create the count matrix (see MergeCounts.R), then normalize counts using DESeq2 (see DESeq2_deltaTE.R)
