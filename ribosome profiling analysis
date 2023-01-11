@@ -1,27 +1,34 @@
 #SAMPLE.fastq, as an example
 
-# Run fastqc quality control for all samples 
+# 1) Run fastqc quality control for all samples 
 module load fastqc/0.11.5
 fastqc #SAMPLE.fastq
 
-# Clip adapter and trim UMI (only for ribofootprint datasets)
+# 2a) Clip adapter and trim UMI (only for Ribo-seq datasets)
 module load fastxtoolkit/0.0.14
 fastx_clipper -Q33 -a ATCGAGATCGGAAGAGCACACGTCTGAACTC -l 25 -c -n -v -i #SAMPLE.fastq -o #SAMPLE.clip.fastq
 fastx_trimmer -Q33 -t 5 -i #SAMPLE.clip.fastq -o #SAMPLE.trim.fastq
 
-# Filter out reads mapping to rRNA (only for ribofootprint datasets)
+# 2b) Filter out reads mapping to rRNA (only for Ribo-seq datasets)
 module load bowtie/1.2.2 
 nohup bowtie -p 24 -l 23 --un #SAMPLE.trim.norrna.fastq /mnt/sequence/genomes/mouse/mm10-ribosomal #SAMPLE.trim.fastq
 
-# Align total reads (for RNA-seq datasets) or non-rRNA reads (for ribofootprint datasets) to the reference genome using STAR
+# 3) Align total reads (for RNA-seq datasets) or non-rRNA reads (for Ribo-seq datasets) to the reference genome using STAR
 module load star/2.6.0c 
-
 # For RNA-seq datasets: 
 STAR --runMode alignReads --genomeDir /mnt/sequence/genomes/mouse/mm10/STAR_cdeluca --runThreadN 16 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate --outFileNamePrefix #SAMPLE_mm10_refSeq_rmsk --readFilesIn #SAMPLE.fastq
-
-# For ribofootprint datasets, I used a slightly more stringent condition because of the shorter read length compared to the RNA-seq counterparts (—outFilterMismatchNmax 4):
+# For Ribo-seq datasets, I used a slightly more stringent condition because of the shorter read length compared to the RNA-seq counterparts (—outFilterMismatchNmax 4): 
 STAR --runMode alignReads --genomeDir /mnt/sequence/genomes/mouse/mm10/STAR_cdeluca --runThreadN 16 --outFilterMismatchNmax 4 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate --outFileNamePrefix #SAMPLE_mm10_refSeq_rmsk --readFilesIn #SAMPLE.trim.norrna.fastq
 
 # (Optional) Index the .bam file to visualize the coverage in IGV
 module load samtools/1.6
 samtools index #SAMPLE_mm10_refSeq_rmskAligned.sortedByCoord.out.bam
+
+# 4) Count the number of reads aligned to the feature of interest (reads were counted on the entire RNA length for RNA-seq datasets, or only on CDS for Ribo-seq datasets)
+module load subread/1.6.4
+# For RNA-seq datasets (option -s 2, for reverse stranded):
+featureCounts -T 10 -t exon -g gene_id -s 2 -a /mnt/sequence/cdeluca/telescope/mm10_UCSC_refSeq_rmsk.gtf -o #SAMPLE_exon.count.txt #SAMPLE_mm10_refSeq_rmskAligned.sortedByCoord.out.bam 
+# For Ribo-seq datasets (option -s 1, for forward stranded):
+featureCounts -T 10 -t CDS -g gene_id -s 1 -a /mnt/sequence/cdeluca/telescope/mm10_UCSC_refSeq_rmsk.gtf -o #SAMPLE_CDS.count.txt #SAMPLE_mm10_refSeq_rmskAligned.sortedByCoord.out.bam 
+
+# Merge counts in R and create the count matrix (see MergeCounts.R), then normalize counts using DESeq2 (DESeq2_deltaTE.R)
