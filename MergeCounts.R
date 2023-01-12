@@ -4,7 +4,7 @@ rm(list=ls())
 # Set working directory
 setwd("/mnt/sequence/cdeluca/ribo_profiling_p16/featureCounts_analysis/merge_counts/")
 
-# Import and prepare data
+# Import data
 mrna_het_1 <- read.table("/mnt/sequence/cdeluca/ribo_profiling_p16/featureCounts_analysis/mrna_het_1/mrna_het_1_exon.count.txt", skip = 1, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
 mrna_het_2 <- read.table("/mnt/sequence/cdeluca/ribo_profiling_p16/featureCounts_analysis/mrna_het_2/mrna_het_2_exon.count.txt", skip = 1, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
 mrna_het_3 <- read.table("/mnt/sequence/cdeluca/ribo_profiling_p16/featureCounts_analysis/mrna_het_3/mrna_het_3_exon.count.txt", skip = 1, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
