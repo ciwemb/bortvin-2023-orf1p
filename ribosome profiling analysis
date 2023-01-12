@@ -17,7 +17,7 @@ nohup bowtie -p 24 -l 23 --un #SAMPLE.trim.norrna.fastq /mnt/sequence/genomes/mo
 module load star/2.6.0c 
 # For RNA-seq datasets: 
 STAR --runMode alignReads --genomeDir /mnt/sequence/genomes/mouse/mm10/STAR_cdeluca --runThreadN 16 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate --outFileNamePrefix #SAMPLE_mm10_refSeq_rmsk --readFilesIn #SAMPLE.fastq
-# For Ribo-seq datasets, I used a slightly more stringent condition because of the shorter read length compared to the RNA-seq counterparts (—outFilterMismatchNmax 4): 
+# For Ribo-seq datasets, I used a slightly more stringent condition because of the shorter read length (—outFilterMismatchNmax 4): 
 STAR --runMode alignReads --genomeDir /mnt/sequence/genomes/mouse/mm10/STAR_cdeluca --runThreadN 16 --outFilterMismatchNmax 4 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate --outFileNamePrefix #SAMPLE_mm10_refSeq_rmsk --readFilesIn #SAMPLE.trim.norrna.fastq
 
 # (Optional) Index the .bam file to visualize the coverage in IGV
