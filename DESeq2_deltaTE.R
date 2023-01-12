@@ -10,8 +10,8 @@ library( "dplyr" )
 library( "tibble" )
 
 # Set wd and load data
-setwd("/mnt/sequence/cdeluca/ribo_profiling_p16/featureCounts_analysis/DESeq2_Chothani_et_al/")
-allCount <- read.table("/mnt/sequence/cdeluca/ribo_profiling_p16/featureCounts_analysis/merge_counts/counts_rna_ribo_annotated.txt", header=T, sep="\t", stringsAsFactors=F)
+setwd("/mnt/sequence/cdeluca/bortvin-2023-orf1p/")
+allCount <- read.table("counts_rna_ribo_annotated.txt", header=T, sep="\t", stringsAsFactors=F)
 
 allCount_sub <- allCount[is.na(allCount$repName),] # subset genes
 allCount_sub$mean <- apply(allCount_sub[,-c(1:4)], 1, mean)
@@ -97,7 +97,7 @@ write.table(res_ribo_2.sorted, "ribo_mael_vs_het_DESeq2.txt", sep="\t", quote=F,
 
 # Plot the mRNA counts vs. the RPFs (with ORF1p-bound mRNAs in evidence)
 
-bound <- read.table("/mnt/sequence/cdeluca/chiara_de_luca/chiara_DESeq/final_analysis/082821-intersection_significant_n1347.txt", header=T, sep="\t", stringsAsFactors=F) # ORF1p-bound n=1347
+bound <- read.table("082821-intersection_significant_n1347.txt", header=T, sep="\t", stringsAsFactors=F) # ORF1p-bound, enriched n=1347
 
 par(mai=c(1,2,1,2))
 plot(x=res_rna_2[,3], y=res_ribo_2[,3], 
