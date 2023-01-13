@@ -1,9 +1,6 @@
 # Clean space
 rm(list=ls())
 
-# Set working directory
-setwd("/mnt/sequence/cdeluca/bortvin-2023-orf1p/")
-
 # Import data
 mrna_het_1 <- read.table("mrna_het_1_exon.count.txt", skip = 1, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
 mrna_het_2 <- read.table("mrna_het_2_exon.count.txt", skip = 1, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
