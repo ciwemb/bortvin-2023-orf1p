@@ -16,6 +16,6 @@ Code contributors: Anuj Gupta, Chiara De Luca
 
 We used *Mael* null mice to investigate the effect of LINE-1 retrotransposon upregulation on translation efficiency (TE) in the germline. We collected *Mael+/-* and *Mael-/-* testes at postnatal day 16 (P16), when LINE-1 upregulation in *Mael-/-* spermatocytes is manifest, and performed ribosome profiling. RNA-seq analysis of the same samples was performed in parallel to evaluate the contribution of transcriptional changes to variations in footprint levels.
 
-The folder "/ribo_profiling" contains the pipeline used for the ribosome profiling data analysis. Raw data have been deposited in NCBI’s Gene Expression Omnibus and are accessible through GEO Series accession number GSE222415 (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE222415).
+The folder "/ribosome_profiling" contains the pipeline used for the ribosome profiling data analysis. Raw data have been deposited in NCBI’s Gene Expression Omnibus and are accessible through GEO Series accession number GSE222415 (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE222415).
 
 Code contributor: Chiara De Luca
