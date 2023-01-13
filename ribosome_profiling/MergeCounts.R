@@ -85,11 +85,9 @@ mergedCountsAnn <- merge(rmskAnn_dedupl, mergedAll, all.x=F, all.y=T, by="repNam
 
 # substitute NA to gene names listed in "repName"
 mergedCountsAnn[is.na(mergedCountsAnn$repClass), "repName"] <- NA
-tail(mergedCountsAnn)
 
 # reorder columns
 mergedCountsAnn <- mergedCountsAnn[,c(4,1:3,5:16)]
-head(mergedCountsAnn)
 
 # Write data to a file
 write.table(mergedCountsAnn, "counts_rna_ribo_annotated.txt", col.names=T, row.names=F, quote=F, sep="\t")
