@@ -9,8 +9,7 @@ library(DESeq2)
 library( "dplyr" )
 library( "tibble" )
 
-# Set wd and load data
-setwd("/mnt/sequence/cdeluca/bortvin-2023-orf1p/")
+# Load data
 allCount <- read.table("counts_rna_ribo_annotated.txt", header=T, sep="\t", stringsAsFactors=F)
 
 allCount_sub <- allCount[is.na(allCount$repName),] # subset genes
