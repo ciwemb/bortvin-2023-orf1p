@@ -1,7 +1,7 @@
 ### This repository contains the pipelines used for sequencing analyses published in De Luca C, Gupta A, and Bortvin A. (2023) Ribonucleoprotein condensation driven by retrotransposon LINE-1 sustains RNA integrity and translation in mouse spermatocytes. bioRxiv https://doi.org/10.1101/2023.01.09.523313
 
 ![Figure 1](https://github.com/ciwemb/bortvin-2023-orf1p/blob/main/banner.png)
-
+Colocalization of L1 RNA (green) and ORF1p (magenta) in the cytoplasm of *Mael*-mutant mouse spermatocytes.
 ---
 ### Characterization of the RNA present in L1 ORF1p macromolecular complexes isolated from Maelstrom-mutant mouse testes
 
