@@ -1,4 +1,5 @@
 ## Flowchart of ribosome profiling data analysis
 
-1) Start with ribosome_profiling.txt
-2) 
+1) Run commands listed in AlignCount.txt
+2)
+3) 
