@@ -1,0 +1,18 @@
+#SAMPLE.fastq, as an example
+
+# 1) Download RepeatMasker track in bed format using UCSC table-browser and create STAR index
+module load star/2.6.0c ucsctools
+bedToGenePred mm10_UCSC_rmsk.bed mm10_UCSC_rmsk.GenePred
+genePredToGtf file mm10_UCSC_rmsk.GenePred mm10_UCSC_rmsk.gtf
+./mergeGTF.pl  
+
+STAR --runMode genomeGenerate --genomeDir /genomes/mouse/mm10/STAR --sjdbGTFfile mm10_UCSC_refSeq_rmsk.gtf --genomeFastaFiles /reference/mm10/mm10.fa
+
+# 2) Run fastqc quality control for all samples
+module load fastqc/0.11.5
+fastqc #SAMPLE.fastq
+
+# 3) Align reads to the reference genome using STAR
+STAR --runMode alignReads --genomeDir /genomes/mouse/mm10/STAR --runThreadN 16 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate --outFileNamePrefix #SAMPLE_mm10_refSeq_rmsk --readFilesIn #SAMPLE.fastq
+
+# 4) Merge counts and create the count matrix in R (see mergeGeneCounts.R)
