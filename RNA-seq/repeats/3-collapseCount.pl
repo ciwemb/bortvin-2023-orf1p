@@ -67,19 +67,19 @@ while ($line= <IN>) {
 	}
 
 open (OUT1, ">repName_collapsed_count_all_samples_telescope.txt");
-print OUT1 "repName\tBO_suc\tBO_suc_2\tBO_suc_3\tIP_suc\tIP_suc_2\tIP_suc_3\tINPUT_suc\tINPUT_suc_2\tINPUT_suc_3\tINPUT_58\tINPUT_58_2\tINPUT_58_3\n";
+print OUT1 "repName\tBO_1\tBO_2\tBO_3\tIP_1\tIP_2\tIP_3\tTOTAL_1\tTOTAL_2\tTOTAL_3\tINPUT_1\tINPUT_2\tINPUT_3\n";
 while (($key, $value) = each(%repNameCount)) {
 	print OUT1 "$key\t$value\n";
 	}
 
 open (OUT2, ">repClass_collapsed_count_all_samples_telescope.txt");
-print OUT2 "repClass\tBO_suc\tBO_suc_2\tBO_suc_3\tIP_suc\tIP_suc_2\tIP_suc_3\tINPUT_suc\tINPUT_suc_2\tINPUT_suc_3\tINPUT_58\tINPUT_58_2\tINPUT_58_3\n";
+print OUT2 "repClass\tBO_1\tBO_2\tBO_3\tIP_1\tIP_2\tIP_3\tTOTAL_1\tTOTAL_2\tTOTAL_3\tINPUT_1\tINPUT_2\tINPUT_3\n";
 while (($key, $value) = each(%repClassCount)) {
         print OUT2 "$key\t$value\n";
         }
 
 open (OUT3, ">repFamily_collapsed_count_all_samples_telescope.txt");
-print OUT3 "repFamily\tBO_suc\tBO_suc_2\tBO_suc_3\tIP_suc\tIP_suc_2\tIP_suc_3\tINPUT_suc\tINPUT_suc_2\tINPUT_suc_3\tINPUT_58\tINPUT_58_2\tINPUT_58_3\n";
+print OUT3 "repFamily\tBO_1\tBO_2\tBO_3\tIP_1\tIP_2\tIP_3\tTOTAL_1\tTOTAL_2\tTOTAL_3\tINPUT_1\tINPUT_2\tINPUT_3\n";
 while (($key, $value) = each(%repFamilyCount)) {
         print OUT3 "$key\t$value\n";
         }
