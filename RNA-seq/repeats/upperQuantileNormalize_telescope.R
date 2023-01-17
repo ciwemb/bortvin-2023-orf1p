@@ -1,48 +1,11 @@
-###################################################
 ### Clear Workspace
 rm(list=ls())
 
-###################################################
-### Set working directory
-setwd("/mnt/sequence/cdeluca/telescope/collapse_count_and_normalize/")
-getwd()
-
-###########################
-### initialize command line parsing
-args <- commandArgs(TRUE)
-
-
-###########################
-### set values to null
-inputFile <- "repName_collapsed_count_all_samples_telescope.txt" # normalized on May 29th, 2020
-
-
-###########################
-### go through the command line arguments and look for matches to the
-#flags that we've defined. When those are found, set the appropriate value accordingly.
-i <- 1
-while (i <  length(args))
-{
-  opt <- args[i]
-  val <- args[i+1]
-  if (opt == "-i") { inputFile <- val }
-  i <- i+2
-}
-
-
-###########################
-### make sure that the value is set, and if not, complain and quit
-if (inputFile == "")
-{
-   message ("Usage: Rscript upperQunatileNormalize.R -i countData")
-   q()
-}
-
+inputFile <- "repName_collapsed_count_all_samples_telescope.txt"
 
 ###################################################
 ### Load libraries
 library(EBSeq)
-
 
 ###################################################
 ### read the data
@@ -50,7 +13,6 @@ countData <- read.table(inputFile, header=T, sep="\t", stringsAsFactors=F)
 myColumnName <- colnames(countData)[1]
 row.names(countData) <- countData[,1]
 countData <- countData[,-1]
-
 
 ###################################################
 ### Quantile normalize the count
@@ -65,12 +27,10 @@ colnames(countData.norm)[ncol(countData.norm)] <- myColumnName
 
 countData.norm <- countData.norm[,c(ncol(countData.norm),1:(ncol(countData.norm)-1))]
 
-
 ###################################################
 ### write the quantile normalized values to a file
-outFile <- sub("count", "count_upper_quantile_normalized", inputFile)
+outFile <- sub("count_all_samples_telescope", "counts_upper_quantile_norm", inputFile)
 write.table(countData.norm, outFile, col.names=T, row.names=F, quote=F, sep="\t")
-
 
 ###########################
 ### sessionInfo and clean and quit
