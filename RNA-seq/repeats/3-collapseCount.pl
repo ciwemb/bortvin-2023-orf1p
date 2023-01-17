@@ -4,7 +4,7 @@
 %repClassCount = ();
 %repFamilyCount = ();
 
-open (IN, "/mnt/sequence/cdeluca/telescope/merge_final_count_R/GeneCounts_telescope_allSamples_annotated.txt");
+open (IN, "GeneCounts_telescope_allSamples_annotated.txt");
 while ($line= <IN>) {
 	chomp($line);
 	@data = split (/\t/, $line);
