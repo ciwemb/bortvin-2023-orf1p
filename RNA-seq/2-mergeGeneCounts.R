@@ -1,20 +1,13 @@
-###########################
-### clear the workspace
+# clear the workspace
 rm(list=ls())
 
-
-###########################
-### read the names of the result files
+# read the names of the result files
 fileList <- list.files(pattern ="ReadsPerGene\\.out\\.tab$")
 
-
-###########################
-### Retrieve sample names
+# Retrieve sample names
 sampleNames <-gsub("_mm10.*$","",fileList)
 
-
-###########################
-### read the files
+# read the files
 myList <- list()
 for (i in 1:length(fileList))
 {
@@ -25,9 +18,7 @@ for (i in 1:length(fileList))
     myList[[i]] <- tab
 }
 
-
-###########################
-### merge the files
+# merge the files
 mergedTab <- merge(myList[[1]],myList[[2]])
 for (i in 3:length(fileList))
 {
@@ -35,9 +26,7 @@ for (i in 3:length(fileList))
 }
 mergedTab$repName <- sub("_\\d+$", "", mergedTab$geneID)
 
-
-###########################
-### add annotation
+# add annotation
 rmskAnn <- read.table("/home/agupta/chiara_de_luca/references/additional_files/mm10.UCSC.repeatsAndVariations.gtf", header=F, sep="\t", stringsAsFactors=F)
 rmskAnn <- rmskAnn[, c(11,12,13)]
 colnames(rmskAnn) <- c("repName", "repClass", "repFamily")
@@ -46,18 +35,11 @@ mergedTab_ann <- merge(rmskAnn, mergedTab, all.y=T)
 mergedTab_ann[is.na(mergedTab_ann$repClass), "repName"] <- NA
 mergedTab_ann <- mergedTab_ann[,c(4,1:3,5:19)]
 
-###########################
-### write the merged values to a file
+# write the merged values to a file
 write.table(mergedTab_ann, "GeneCounts_all_samples.txt", col.names=T, row.names=F, quote=F, sep="\t")
 
-
-###########################
-### sessionInfo and clean and quit
+# sessionInfo and clean and quit
 sessionInfo()
 date()
 rm(list=ls())
-
-
-###########################
-####quit
 q("yes")
