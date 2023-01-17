@@ -38,7 +38,7 @@ df_ncounts$IP_mean <- apply( df_ncounts[,4:6], 1, mean )
 
 # prepare the output
 res2 <- as.data.frame(res@listData)
-res2 <- cbind( res2, df_ncounts[,c("BO_mean","IP_mean")] ) # add mean of normalized counts column
+res2 <- cbind( res2, df_ncounts[,c("BO_mean","IP_mean")] ) # add mean of normalized counts columns
 res2$id <- res@rownames
 res2 <- res2[,c(9,1:8)]
 for (i in 2:ncol(res2)) {
