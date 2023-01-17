@@ -1,1 +1,1 @@
-### This folder contains the pipelines for the analysis of genomic repeats (refer to "/repeats" folder) and coding genes (refer to "/genes" folder).
+#### This folder contains the analyses of RNA-seq data for genomic repeats (refer to "/repeats" folder) and for coding genes (refer to "/genes" folder).
