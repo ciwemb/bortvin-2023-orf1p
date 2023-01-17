@@ -6,5 +6,3 @@ fastqc #SAMPLE.fastq
 
 # 2) Align reads to the reference genome using STAR
 STAR --runMode alignReads --genomeDir /genomes/mouse/mm10/STAR --runThreadN 16 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate --outFileNamePrefix #SAMPLE_mm10_refSeq_rmsk --readFilesIn #SAMPLE.fastq
-
-# 3) Merge counts and create the count matrix in R (see mergeGeneCounts.R)
