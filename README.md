@@ -1,4 +1,3 @@
-### Welcome!
 ### This repository contains the pipelines used for sequencing analyses published in De Luca C, Gupta A, and Bortvin A. (2023) Ribonucleoprotein condensation driven by retrotransposon LINE-1 sustains RNA integrity and translation in mouse spermatocytes. bioRxiv https://doi.org/10.1101/2023.01.09.523313
 
 ---
