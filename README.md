@@ -2,6 +2,7 @@
 
 ![Figure 1](https://github.com/ciwemb/bortvin-2023-orf1p/blob/main/banner.png)
 Colocalization of L1 RNA (green) and ORF1p (magenta) in the cytoplasm of *Mael*-mutant mouse spermatocytes.
+
 ---
 ### Characterization of the RNA present in L1 ORF1p macromolecular complexes isolated from Maelstrom-mutant mouse testes
 
