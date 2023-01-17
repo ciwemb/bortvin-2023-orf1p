@@ -1,6 +1,6 @@
 ## Flowchart of data analysis
 
-1) Run commands listed in 1-Align.txt to align (STAR) and re-assign ambiguously mapped reads (Telescope).
+1) Run commands listed in 1-Align.txt to align (STAR) and re-assign ambiguously mapped (Telescope) reads.
 2) Run 2-mergeTelescopeCounts.R to merge Telescope counts and create a master table named "GeneCounts_telescope_allSamples_annotated.txt".
 3) Run 3-collapseCount.pl to collapse genomic repeats read counts based on same repName, repClass or repFamily.
 4) Run 4-upperQuantileNormalize.R to normalize counts using EBSeq package in R and generate the table named "repName_collapsed_counts_upper_quantile_norm.txt" submitted to the NCBI's Gene Expression Omnibus repository.
