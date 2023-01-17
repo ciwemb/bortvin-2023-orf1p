@@ -33,11 +33,5 @@ outFile <- sub("count_all_samples_telescope", "counts_upper_quantile_norm", inpu
 write.table(countData.norm, outFile, col.names=T, row.names=F, quote=F, sep="\t")
 
 ###########################
-### sessionInfo and clean and quit
+### sessionInfo
 sessionInfo() # R version 3.6.1, EBSeq_1.26.0
-date()
-rm(list=ls())
-
-###########################
-####quit
-q("yes")
