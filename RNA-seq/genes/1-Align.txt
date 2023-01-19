@@ -6,4 +6,4 @@ fastqc #SAMPLE.fastq
 
 # 2) Align reads to the reference genome using STAR
 module load star/2.6.0c
-STAR --runMode alignReads --genomeDir /genomes/mouse/mm10/STAR --runThreadN 16 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate --outFileNamePrefix #SAMPLE_mm10_refSeq_rmsk --readFilesIn #SAMPLE.fastq
+STAR --runMode alignReads --genomeDir /genomes/mouse/mm10/STAR/ --runThreadN 16 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate --outFileNamePrefix #SAMPLE_mm10_refSeq_rmsk --readFilesIn #SAMPLE.fastq
