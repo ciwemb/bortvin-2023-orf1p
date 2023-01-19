@@ -27,7 +27,7 @@ for (i in 3:length(fileList))
 mergedTab$repName <- sub("_\\d+$", "", mergedTab$geneID)
 
 # add annotation
-rmskAnn <- read.table("/home/agupta/chiara_de_luca/references/additional_files/mm10.UCSC.repeatsAndVariations.gtf", header=F, sep="\t", stringsAsFactors=F)
+rmskAnn <- read.table("mm10.UCSC.repeatsAndVariations.gtf", header=F, sep="\t", stringsAsFactors=F)
 rmskAnn <- rmskAnn[, c(11,12,13)]
 colnames(rmskAnn) <- c("repName", "repClass", "repFamily")
 rmskAnn <- rmskAnn[!duplicated(rmskAnn),]
