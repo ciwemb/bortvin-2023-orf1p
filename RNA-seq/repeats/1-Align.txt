@@ -6,7 +6,7 @@ fastqc #SAMPLE.fastq
 
 # 2) Align reads to the reference genome using STAR and re-assign ambiguous reads using Telescope
 module load star/2.6.0c
-STAR --runMode alignReads --genomeDir /mnt/sequence/genomes/mouse/mm10/STAR_cdeluca/ --runThreadN 16 --outSAMtype BAM SortedByCoordinate --outFileNamePrefix #SAMPLE_mm10_refSeq_rmsk --readFilesIn #SAMPLE.fastq --outFilterMultimapNmax 100
+STAR --runMode alignReads --genomeDir /genomes/mouse/mm10/STAR/ --runThreadN 16 --outSAMtype BAM SortedByCoordinate --outFileNamePrefix #SAMPLE_mm10_refSeq_rmsk --readFilesIn #SAMPLE.fastq --outFilterMultimapNmax 100
   
 module load telescope/1.0.3 
 nohup telescope assign #SAMPLE_mm10_refSeq_rmskAligned.sortedByCoord.out.bam mm10_UCSC_refSeq_rmsk.gtf --attribute gene_id --updated_sam &
