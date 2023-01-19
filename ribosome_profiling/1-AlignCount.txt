@@ -24,7 +24,7 @@ STAR --runMode alignReads --genomeDir /genomes/mouse/mm10/STAR --runThreadN 16 -
 module load samtools/1.6
 samtools index #SAMPLE_mm10_refSeq_rmskAligned.sortedByCoord.out.bam
 
-# 4) Count the number of reads aligned to the feature of interest (reads were counted on the entire RNA length for RNA-seq datasets, or only on CDS for Ribo-seq datasets)
+# 4) Count the number of reads aligned to the feature of interest (reads were counted on the entire RNA length for RNA-seq datasets, or only on CDS for Ribo-seq datasets). The .gtf used here is generated as reported in the "createStarIndex" folder.
 module load subread/1.6.4
 # For RNA-seq datasets (option -s 2, for reverse stranded):
 featureCounts -T 10 -t exon -g gene_id -s 2 -a mm10_UCSC_refSeq_rmsk.gtf -o #SAMPLE_exon.count.txt #SAMPLE_mm10_refSeq_rmskAligned.sortedByCoord.out.bam 
