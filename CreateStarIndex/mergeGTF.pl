@@ -27,7 +27,7 @@ while ($line= <IN1>) {
 		}
 	}
 
-open (IN2, "/data/zappadata_p1/reference/mm10/rsemindex/star/mm10_UCSC_noAlt.gtf");
+open (IN2, "mm10_UCSC_noAlt.gtf");
 while ($line= <IN2>) {
 	chomp($line);
 	@data = split (/\t/, $line);
