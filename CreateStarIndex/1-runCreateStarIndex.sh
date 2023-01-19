@@ -13,4 +13,4 @@ module load sharedapps star/2.6.0c ucsctools
 bedToGenePred mm10_UCSC_rmsk.bed mm10_UCSC_rmsk.GenePred
 genePredToGtf file mm10_UCSC_rmsk.GenePred mm10_UCSC_rmsk.gtf
 ./mergeGTF.pl  
-STAR --runMode genomeGenerate --genomeDir mm10_refSeq_rmsk_starindex --sjdbGTFfile /home/agupta/chiara_de_luca/references/rsemstar/refSeq_rmsk/mm10_UCSC_refSeq_rmsk.gtf --genomeFastaFiles /data/zappadata_p1/reference/mm10/mm10.fa
+STAR --runMode genomeGenerate --genomeDir /genomes/mouse/mm10/STAR/ --sjdbGTFfile mm10_UCSC_refSeq_rmsk.gtf --genomeFastaFiles mm10.fa
