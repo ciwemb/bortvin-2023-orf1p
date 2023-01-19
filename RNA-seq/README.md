@@ -1,1 +1,2 @@
 This folder contains the analyses of RNA-seq data for genomic repeats (refer to folder "/repeats"), and for coding genes (folder "/genes").
+The annotation file "mm10.UCSC.repeatsAndVariations.gtf" was obtained using the UCSC Table Browser (https://genome.ucsc.edu/cgi-bin/hgTables). The following table settings were used - clade: Mammal, genome: Mouse, assembly: mm10, group: Variation and Repeats, track: RepeatMasker and table: rmsk. (October 2019)
