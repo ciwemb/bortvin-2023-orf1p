@@ -1,17 +1,17 @@
 # Import and prepare data
 
-BO_1 <- read.table("/BO_1/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
-BO_2 <- read.table("/BO_2/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
-BO_3 <- read.table("/BO_3/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
-IP_1 <- read.table("/IP_1/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
-IP_2 <- read.table("/IP_2/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
-IP_3 <- read.table("/IP_3/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
-TOTAL_1 <- read.table("/TOTAL_1/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
-TOTAL_2 <- read.table("/TOTAL_2/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
-TOTAL_3 <- read.table("/TOTAL_3/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
-INPUT_1 <- read.table("/INPUT_1/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
-INPUT_2 <- read.table("/INPUT_2/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
-INPUT_3 <- read.table("/INPUT_3/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
+BO_1 <- read.table("BO_1/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
+BO_2 <- read.table("BO_2/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
+BO_3 <- read.table("BO_3/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
+IP_1 <- read.table("IP_1/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
+IP_2 <- read.table("IP_2/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
+IP_3 <- read.table("IP_3/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
+TOTAL_1 <- read.table("TOTAL_1/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
+TOTAL_2 <- read.table("TOTAL_2/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
+TOTAL_3 <- read.table("TOTAL_3/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
+INPUT_1 <- read.table("INPUT_1/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
+INPUT_2 <- read.table("INPUT_2/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
+INPUT_3 <- read.table("INPUT_3/telescope-telescope_report.tsv", header = TRUE, sep = "\t", skip = 1, stringsAsFactors = FALSE)
 
 # get final counts and rename count columns
 BO_1_count <- BO_1[,c(1,3)]
