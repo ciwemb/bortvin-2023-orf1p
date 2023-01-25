@@ -33,13 +33,12 @@ colnames(rmskAnn) <- c("repName", "repClass", "repFamily")
 rmskAnn <- rmskAnn[!duplicated(rmskAnn),]
 mergedTab_ann <- merge(rmskAnn, mergedTab, all.y=T)
 mergedTab_ann[is.na(mergedTab_ann$repClass), "repName"] <- NA
-mergedTab_ann <- mergedTab_ann[,c(4,1:3,5:19)]
+mergedTab_ann <- mergedTab_ann[,c(4,1:3,5:16)]
 
 # write the merged values to a file
 write.table(mergedTab_ann, "GeneCounts_all_samples.txt", col.names=T, row.names=F, quote=F, sep="\t")
 
 # sessionInfo and clean and quit
 sessionInfo()
-date()
 rm(list=ls())
 q("yes")
