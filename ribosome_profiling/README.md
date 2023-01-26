@@ -1,4 +1,4 @@
-## Flowchart of data analysis
+## Outline of data analysis
 
 1) Run commands listed in AlignCount.txt to align and count reads; output is a series of files named "#SAMPLE_exon.count.txt" or "#SAMPLE_CDS.count.txt", containing the read counts for RNA-seq samples and Ribo-seq samples, respectively.
 2) Run MergeCounts.R to create the count matrix named "counts_rna_ribo_annotated.txt". The annotation file "mm10.UCSC.repeatsAndVariations.gtf" used in this analysis was obtained using the UCSC Table Browser (https://genome.ucsc.edu/cgi-bin/hgTables). The following table settings were used - clade: Mammal, genome: Mouse, assembly: mm10, group: Variation and Repeats, track: RepeatMasker and table: rmsk. Note: the file used in our analysis was generated on October 2019; the current version of this file (January 2023) contains additional repeat entries.
